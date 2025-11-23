@@ -57,6 +57,8 @@ export interface UserProfileMetadata {
   stripe_customer_id?: string
   order?: UserOrder // Legacy: Single order per user (deprecated, use subscriptions instead)
   subscriptions?: Record<string, UserOrder> // Multiple subscriptions keyed by planId
+  email?: string
+  name?: string
   [key: string]: unknown
 }
 

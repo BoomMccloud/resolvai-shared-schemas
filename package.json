@@ -1,5 +1,6 @@
 {
   "name": "@resolvai/shared-schemas",
+  "type": "module",
   "version": "0.1.0",
   "description": "Shared schemas, prompt configurations, and type definitions for ResolvAI projects",
   "main": "src/index.ts",
@@ -27,8 +28,11 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint . --ext .ts",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint --ignore-pattern=dist && tsc --noEmit",
+    "lint:fix": "eslint --ignore-pattern=dist --fix && tsc --noEmit",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,html,yml,yaml,scss}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,html,yml,yaml,scss}\""
   },
   "keywords": [
     "schemas",
@@ -46,6 +50,13 @@
   "devDependencies": {
     "@types/node": "^22.19.1",
     "drizzle-kit": "^0.31.7",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.41"
   }
 }
