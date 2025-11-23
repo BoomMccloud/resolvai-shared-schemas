@@ -4,11 +4,32 @@
   "description": "Shared schemas, prompt configurations, and type definitions for ResolvAI projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./db-schema": {
+      "types": "./dist/db-schema/index.d.ts",
+      "default": "./dist/db-schema/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "default": "./dist/config/index.js"
+    },
+    "./shared-types": {
+      "types": "./dist/shared-types/index.d.ts",
+      "default": "./dist/shared-types/index.js"
+    }
+  },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "prepare": "pnpm build",
+    "prepack": "pnpm build",
     "lint": "eslint . --ext .ts",
     "clean": "rm -rf dist"
   },
