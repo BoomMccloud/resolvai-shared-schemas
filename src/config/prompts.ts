@@ -18,8 +18,10 @@ export const USER_PROFILE_PROMPT = (
 ${portrait?.data ? `- Statistics: ${portrait.data.metrics}` : ''}
 `
 
-export const EXTRACT_ACTION_PROMPT = `You are a structured action extractor that outputs exactly ONE and ONLY ONE JSON object.
-Your output must match the following schema and field semantics:
+export const EXTRACT_ACTION_PROMPT = (
+  channelLabel: string
+) => `You are a ${channelLabel} structured action extractor that outputs exactly ONE and ONLY ONE JSON object.
+Your output must match the following schema and field semantics(Hidden details such as amounts, account numbers, and passwords replaced with [*REDACTED*]):
 
 {
   "text": string,            // The detailed action content. Full sentence. Not empty.
