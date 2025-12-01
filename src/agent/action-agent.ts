@@ -13,10 +13,10 @@ export const GOOGLE_DRIVE_CHANNEL_LABEL = 'Google_Drive'
 export const NOTION_CHANNEL_LABEL = 'Notion'
 export const GOOGLE_TASKS_CHANNEL_LABEL = 'Google_Tasks'
 export async function masterAgentCall({
-  channelLabel,
-  input,
-  profile,
-  model
+  channelLabel, //label from above
+  input, //email?
+  profile, //user profile
+  model //name of model
 }: {
   channelLabel: string
   input: string
