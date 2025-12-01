@@ -12,12 +12,17 @@ export const GOOGLE_CALENDAR_CHANNEL_LABEL = 'Google_Calendar'
 export const GOOGLE_DRIVE_CHANNEL_LABEL = 'Google_Drive'
 export const NOTION_CHANNEL_LABEL = 'Notion'
 export const GOOGLE_TASKS_CHANNEL_LABEL = 'Google_Tasks'
-export async function masterAgentCall(
-  channelLabel: string,
-  input: string,
-  profile: typeof userProfile.$inferSelect,
+export async function masterAgentCall({
+  channelLabel,
+  input,
+  profile,
+  model
+}: {
+  channelLabel: string
+  input: string
+  profile: typeof userProfile.$inferSelect
   model: LanguageModel
-) {
+}) {
   //这里可以添加中间逻辑，例如：
   //1. 根据输入内容，判断是否需要进行进一步的分析
   //2. 如果需要进一步的分析，则调用进一步的分析方法
